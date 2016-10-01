@@ -12,8 +12,10 @@ public:
     Widget(QWidget *parent = 0);
     ~Widget();
 private:
-    QLabel *labImg;
-    QSize imgSize;
+    QLabel *labImg;         //放图片的label
+    QSize imgSize;          //图片的大小
+    QString imgExt;         //图片的扩展名
+    QMovie *mv;              //图片本体包括gif
 };
 
 #endif // WIDGET_H
