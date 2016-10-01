@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QLabel>
 
 class Widget : public QWidget
 {
@@ -10,6 +11,9 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = 0);
     ~Widget();
+private:
+    QLabel *labImg;
+    QSize imgSize;
 };
 
 #endif // WIDGET_H
