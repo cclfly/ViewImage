@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QScrollBar>
 #include <QResizeEvent>
+#include <QImageReader>
 
 class Widget : public QWidget
 {
@@ -17,12 +18,11 @@ private:
     //窗口大小改变事件
     void resizeEvent(QResizeEvent *event);
 private:
-    QImage *img;            //图片本体
+    QImageReader img;       //图片本体
     QLabel *labImg;         //放图片的label
     QSize imgConstSize;     //图片的原始大小
     QPoint imgPot;          //图片在窗口中的位置
     QSize imgSize;          //图片显示大小
-    QString imgExt;         //图片的扩展名
     QMovie *mv;             //图片动画本体如gif
 
     double imgMagn;         //图片放大倍数

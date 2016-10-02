@@ -10,20 +10,21 @@ Widget::Widget(QWidget *parent)
     labImg = new QLabel(this);
 
     QString imgPath = QApplication::arguments()[1];
-    img = new QImage(imgPath);
-    imgExt = imgPath.right(imgPath.length()-imgPath.lastIndexOf('.'));
-    imgConstSize = img->size();
+    img.setFileName(imgPath);
+
+    imgConstSize = img.size();
     imgSize = imgConstSize*0.5;
-    labImg->setPixmap(QPixmap::fromImage(*img));
+    labImg->setPixmap(QPixmap::fromImage(img.read()));
     labImg->setScaledContents(true);
     labImg->resize(imgSize);
 
-    //这里应该判断，，但是算了
-    //if(imgExt==".gif"){
-    mv = new QMovie(imgPath);
-    mv->start();
-    labImg->setMovie(mv);
-    //}
+    //判断是不是动图
+    if(img.supportsAnimation())
+    {
+        mv = new QMovie(imgPath);
+        mv->start();
+        labImg->setMovie(mv);
+    }
 }
 
 Widget::~Widget()
