@@ -13,10 +13,12 @@ Widget::Widget(QWidget *parent)
     img.setFileName(imgPath);
 
     imgConstSize = img.size();
-    imgSize = imgConstSize*0.5;
+    imgRect.setSize(imgConstSize*0.5);
+    imgSlope = imgConstSize.height()*1.0/imgConstSize.width();
+
     labImg->setPixmap(QPixmap::fromImage(img.read()));
     labImg->setScaledContents(true);
-    labImg->resize(imgSize);
+    labImg->resize(imgRect.size());
 
     //判断是不是动图
     if(img.supportsAnimation())
@@ -40,20 +42,17 @@ Widget::~Widget()
 void Widget::resizeEvent(QResizeEvent *event)
 {
     QSize newSize = event->size();
-    double slope = imgConstSize.height()*1.0/imgConstSize.width();
 
-    if(newSize.height()*1.0/newSize.width()>slope)
+    if(newSize.height()*1.0/newSize.width()>imgSlope)
     {
         imgMagn = newSize.width()*1.0/imgConstSize.width();
-        imgSize = imgMagn*imgConstSize;
-        imgPot = QPoint(0,(newSize.height()-imgSize.height())/2);
+        imgRect = QRect(QPoint(0,(newSize.height()-imgRect.height())/2),imgMagn*imgConstSize);
     }
     else
     {
         imgMagn = newSize.height()*1.0/imgConstSize.height();
-        imgSize = imgMagn*imgConstSize;
-        imgPot = QPoint((newSize.width()-imgSize.width())/2,0);
+        imgRect =QRect(QPoint((newSize.width()-imgRect.width())/2,0),imgMagn*imgConstSize);
     }
 
-    labImg->setGeometry(QRect(imgPot,imgSize));
+    labImg->setGeometry(imgRect);
 }

@@ -21,8 +21,8 @@ private:
     QImageReader img;       //图片本体
     QLabel *labImg;         //放图片的label
     QSize imgConstSize;     //图片的原始大小
-    QPoint imgPot;          //图片在窗口中的位置
-    QSize imgSize;          //图片显示大小
+    double imgSlope;        //图片高宽比
+    QRect imgRect;          //图片显示的位置大小
     QMovie *mv;             //图片动画本体如gif
 
     double imgMagn;         //图片放大倍数
