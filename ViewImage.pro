@@ -11,8 +11,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ViewImage
 TEMPLATE = app
 
+CONFIG += -std=c++1y
 
-SOURCES += main.cpp\
-        widget.cpp
+SOURCES += \
+    main.cpp
 
-HEADERS  += widget.h
+HEADERS  +=
+
+RESOURCES +=
