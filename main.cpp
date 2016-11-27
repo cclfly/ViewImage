@@ -1,11 +1,11 @@
-/*******************************
+/*!
+ * \file main.cpp
+ * \brief tools for watching image
  * 图片查看器
- * main.cpp
- * Copyright(c)
- * All rights reserved.
- * Author: cclfly
- * Date: 2016-11-27
- *******************************/
+ * \author cclfly
+ * \date 2016-11-28
+ * \version 0.1
+ */
 
 #include <QApplication>
 

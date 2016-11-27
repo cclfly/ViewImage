@@ -1,11 +1,11 @@
-/*******************************
+/*!
+ * \file imageview.cpp
+ * \brief image display
  * 图片查看部件
- * imageview.cpp
- * Copyright(c)
- * All rights reserved.
- * Author: cclfly
- * Date: 2016-11-27
- *******************************/
+ * \author cclfly
+ * \date 2016-11-28
+ * \version 0.1
+ */
 
 #include "imageview.h"
 
