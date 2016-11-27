@@ -14,8 +14,10 @@ TEMPLATE = app
 CONFIG += -std=c++1y
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+    imageview.cpp
 
-HEADERS  +=
+HEADERS  += \
+    imageview.h
 
 RESOURCES +=
